@@ -237,7 +237,7 @@ const App: React.FC = () => {
 
         {/* Categories */}
         <div className="mt-20">
-          <div className="grid grid-cols-4 md:grid-cols-8 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-8 gap-4">
             {categories.map((category, idx) => {
               const Icon = category.icon;
               return (
