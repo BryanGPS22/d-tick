@@ -12,10 +12,10 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Dashboard", href: "/admin" },
-  { label: "Organizer Requests", href: "/admin/organizer" },
-  { label: "Event Management", href: "/admin/events" },
-  { label: "Analytics", href: "/admin/analytics" },
-  { label: "Revenue", href: "/admin/reveneu" },
+  // { label: "Organizer Requests", href: "/admin/organizer" },
+  // { label: "Event Management", href: "/admin/events" },
+  // { label: "Analytics", href: "/admin/analytics" },
+  // { label: "Revenue", href: "/admin/reveneu" },
 ];
 
 const userRoles: { role: UserRole; icon: string; url?: string }[] = [
@@ -25,7 +25,7 @@ const userRoles: { role: UserRole; icon: string; url?: string }[] = [
 ];
 
 export default function Navbar() {
-  const [activeRole, setActiveRole] = useState<UserRole>("Customer");
+  const [activeRole, setActiveRole] = useState<UserRole>("Admin");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

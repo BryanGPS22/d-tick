@@ -14,7 +14,7 @@ const navItems: NavItem[] = [
   { label: "Dashboard", href: "/organizer" },
   { label: "Events", href: "/organizer/events" },
   { label: "Finance", href: "/organizer/finance" },
-  { label: "Profile", href: "/profile" },
+  // { label: "Profile", href: "/profile" },
 ];
 
 const userRoles: { role: UserRole; icon: string; url?: string }[] = [
@@ -24,7 +24,7 @@ const userRoles: { role: UserRole; icon: string; url?: string }[] = [
 ];
 
 export default function Navbar() {
-  const [activeRole, setActiveRole] = useState<UserRole>("Customer");
+  const [activeRole, setActiveRole] = useState<UserRole>("Organizer");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

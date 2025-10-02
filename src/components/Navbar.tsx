@@ -16,7 +16,7 @@ const navItems: NavItem[] = [
   { label: "Marketplace", href: "/marketplace" },
   { label: "My Tickets", href: "/tickets" },
   { label: "Organizer Request", href: "/organizer-request" },
-  { label: "Profile", href: "/profile" },
+  // { label: "Profile", href: "/profile" },
 ];
 
 const userRoles: { role: UserRole; icon: string; url?: string }[] = [

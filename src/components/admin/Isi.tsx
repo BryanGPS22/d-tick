@@ -1,147 +1,160 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Users, Calendar, DollarSign, TrendingUp, Eye, CheckCircle } from 'lucide-react';
-import Link from 'next/link';
+import { Users, Calendar, DollarSign, TrendingUp, Building2, Ticket, } from 'lucide-react';
+// import Link from 'next/link';
 
 // Types
-interface Event {
-  id: string;
-  name: string;
-  organizer: string;
-  ticketsSold: number;
-  revenue: number;
-  status: 'ACTIVE' | 'COMPLETED' | 'CANCELLED';
-}
+// interface Event {
+//   id: string;
+//   name: string;
+//   organizer: string;
+//   ticketsSold: number;
+//   revenue: number;
+//   status: 'ACTIVE' | 'COMPLETED' | 'CANCELLED';
+// }
 
-interface PendingRequest {
-  id: string;
-  name: string;
-  type: 'INDIVIDUAL' | 'PT' | 'KOMUNITAS';
-  email: string;
-  submittedDate: string;
-}
+// interface PendingRequest {
+//   id: string;
+//   name: string;
+//   type: 'INDIVIDUAL' | 'PT' | 'KOMUNITAS';
+//   email: string;
+//   submittedDate: string;
+// }
 
-interface PlatformHealth {
-  serverStatus: 'operational' | 'degraded' | 'down';
-  storageUsage: number;
-  apiResponseTime: number;
-}
+// interface PlatformHealth {
+//   serverStatus: 'operational' | 'degraded' | 'down';
+//   storageUsage: number;
+//   apiResponseTime: number;
+// }
 
 const AdminDashboard = () => {
+  const [timeRange, setTimeRange] = useState<string>('Last 30 days');
+  
   // Stats State
   const [stats] = useState({
     totalOrganizers: 4,
     activeEvents: 4,
     totalRevenue: 59.5,
-    ticketsSold: 270
+    ticketsSold: 270,
+    revenueGrowth: 42,
+    platformFees: 595000,
+    feesPercentage: 1,
+    totalTickets: 270,
+    eventsCount: 4,
+    activeUsers: 1543,
+    newUsers: 287
   });
 
   // Events State
-  const [events] = useState<Event[]>([
-    {
-      id: '1',
-      name: 'Tech Conference 2025',
-      organizer: 'TechTalks ID',
-      ticketsSold: 250,
-      revenue: 42500000,
-      status: 'ACTIVE'
-    },
-    {
-      id: '2',
-      name: 'Summer Music Festival',
-      organizer: 'EventMaster Indonesia',
-      ticketsSold: 50,
-      revenue: 15000000,
-      status: 'ACTIVE'
-    },
-    {
-      id: '3',
-      name: 'Blockchain Workshop',
-      organizer: 'Blockchain Indonesia',
-      ticketsSold: 20,
-      revenue: 2000000,
-      status: 'ACTIVE'
-    },
-    {
-      id: '4',
-      name: 'Rock Concert: Thunder Night',
-      organizer: 'RockFest Indonesia',
-      ticketsSold: 0,
-      revenue: 0,
-      status: 'ACTIVE'
-    }
-  ]);
+  // const [events] = useState<Event[]>([
+  //   {
+  //     id: '1',
+  //     name: 'Tech Conference 2025',
+  //     organizer: 'TechTalks ID',
+  //     ticketsSold: 250,
+  //     revenue: 42500000,
+  //     status: 'ACTIVE'
+  //   },
+  //   {
+  //     id: '2',
+  //     name: 'Summer Music Festival',
+  //     organizer: 'EventMaster Indonesia',
+  //     ticketsSold: 50,
+  //     revenue: 15000000,
+  //     status: 'ACTIVE'
+  //   },
+  //   {
+  //     id: '3',
+  //     name: 'Blockchain Workshop',
+  //     organizer: 'Blockchain Indonesia',
+  //     ticketsSold: 20,
+  //     revenue: 2000000,
+  //     status: 'ACTIVE'
+  //   },
+  //   {
+  //     id: '4',
+  //     name: 'Rock Concert: Thunder Night',
+  //     organizer: 'RockFest Indonesia',
+  //     ticketsSold: 0,
+  //     revenue: 0,
+  //     status: 'ACTIVE'
+  //   }
+  // ]);
 
   // Pending Requests State
-  const [pendingRequests] = useState<PendingRequest[]>([
-    {
-      id: '1',
-      name: 'Creative Workshop Studio',
-      type: 'INDIVIDUAL',
-      email: 'info@creativeworkshop.id',
-      submittedDate: '2025-01-19'
-    },
-    {
-      id: '2',
-      name: 'Bali Event Organizers',
-      type: 'PT',
-      email: 'contact@balievents.com',
-      submittedDate: '2025-01-18'
-    },
-    {
-      id: '3',
-      name: 'Youth Community Jakarta',
-      type: 'KOMUNITAS',
-      email: 'admin@youthjakarta.org',
-      submittedDate: '2025-01-17'
-    }
-  ]);
+  // const [pendingRequests] = useState<PendingRequest[]>([
+  //   {
+  //     id: '1',
+  //     name: 'Creative Workshop Studio',
+  //     type: 'INDIVIDUAL',
+  //     email: 'info@creativeworkshop.id',
+  //     submittedDate: '2025-01-19'
+  //   },
+  //   {
+  //     id: '2',
+  //     name: 'Bali Event Organizers',
+  //     type: 'PT',
+  //     email: 'contact@balievents.com',
+  //     submittedDate: '2025-01-18'
+  //   },
+  //   {
+  //     id: '3',
+  //     name: 'Youth Community Jakarta',
+  //     type: 'KOMUNITAS',
+  //     email: 'admin@youthjakarta.org',
+  //     submittedDate: '2025-01-17'
+  //   }
+  // ]);
 
   // Platform Health State
-  const [platformHealth] = useState<PlatformHealth>({
-    serverStatus: 'operational',
-    storageUsage: 67,
-    apiResponseTime: 127
-  });
+  // const [platformHealth] = useState<PlatformHealth>({
+  //   serverStatus: 'operational',
+  //   storageUsage: 67,
+  //   apiResponseTime: 127
+  // });
 
-  const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('id-ID', {
-      style: 'currency',
-      currency: 'IDR',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
-    }).format(amount);
-  };
+  // const formatCurrency = (amount: number) => {
+  //   return new Intl.NumberFormat('id-ID', {
+  //     style: 'currency',
+  //     currency: 'IDR',
+  //     minimumFractionDigits: 0,
+  //     maximumFractionDigits: 0
+  //   }).format(amount);
+  // };
 
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('id-ID', {
-      year: 'numeric',
-      month: '2-digit',
-      day: '2-digit'
-    });
-  };
+  // const formatDate = (dateString: string) => {
+  //   return new Date(dateString).toLocaleDateString('id-ID', {
+  //     year: 'numeric',
+  //     month: '2-digit',
+  //     day: '2-digit'
+  //   });
+  // };
 
-  const handleReview = (requestId: string) => {
-    console.log('Reviewing request:', requestId);
-    alert(`Opening review modal for request ${requestId}`);
-  };
+  // const handleReview = (requestId: string) => {
+  //   console.log('Reviewing request:', requestId);
+  //   alert(`Opening review modal for request ${requestId}`);
+  // };
 
-  const getTypeColor = (type: string) => {
-    switch (type) {
-      case 'INDIVIDUAL':
-        return 'bg-blue-100 text-blue-700';
-      case 'PT':
-        return 'bg-blue-200 text-blue-800';
-      case 'KOMUNITAS':
-        return 'bg-blue-300 text-blue-900';
-      default:
-        return 'bg-gray-100 text-gray-700';
-    }
+  // const getTypeColor = (type: string) => {
+  //   switch (type) {
+  //     case 'INDIVIDUAL':
+  //       return 'bg-blue-100 text-blue-700';
+  //     case 'PT':
+  //       return 'bg-blue-200 text-blue-800';
+  //     case 'KOMUNITAS':
+  //       return 'bg-blue-300 text-blue-900';
+  //     default:
+  //       return 'bg-gray-100 text-gray-700';
+  //   }
+  // };
+
+  const formatCurrency = (amount: number): string => {
+    return `IDR ${amount.toLocaleString('id-ID')}`;
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className=" bg-gray-50 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
@@ -220,9 +233,86 @@ const AdminDashboard = () => {
           </div>
         </div>
 
+        <div className="flex justify-between items-start mb-8">
+          <div>
+            <h1 className="text-3xl font-bold text-gray-900">Analytics Dashboard</h1>
+            <p className="text-gray-600 mt-1">Platform performance and revenue insights</p>
+          </div>
+          <select 
+            value={timeRange}
+            onChange={(e) => setTimeRange(e.target.value)}
+            className="px-4 py-2 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500"
+          >
+            <option>Last 7 days</option>
+            <option>Last 30 days</option>
+            <option>Last 90 days</option>
+            <option>Last year</option>
+          </select>
+        </div>
+
+        {/* Stats Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Total Platform Revenue</p>
+                <h3 className="text-2xl font-bold text-gray-900">{formatCurrency(stats.totalRevenue)}</h3>
+              </div>
+              <div className="p-3 bg-green-50 rounded-lg">
+                <DollarSign className="w-6 h-6 text-green-600" />
+              </div>
+            </div>
+            <div className="flex items-center text-sm text-green-600">
+              <TrendingUp className="w-4 h-4 mr-1" />
+              <span>{stats.revenueGrowth}% from last month</span>
+            </div>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Platform Fees Collected</p>
+                <h3 className="text-2xl font-bold text-purple-600">{formatCurrency(stats.platformFees)}</h3>
+              </div>
+              <div className="p-3 bg-purple-50 rounded-lg">
+                <Building2 className="w-6 h-6 text-purple-600" />
+              </div>
+            </div>
+            <p className="text-sm text-gray-500">{stats.feesPercentage}% of total revenue</p>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Total Tickets Sold</p>
+                <h3 className="text-2xl font-bold text-blue-600">{stats.totalTickets}</h3>
+              </div>
+              <div className="p-3 bg-blue-50 rounded-lg">
+                <Ticket className="w-6 h-6 text-blue-600" />
+              </div>
+            </div>
+            <p className="text-sm text-gray-500">Across {stats.eventsCount} events</p>
+          </div>
+
+          <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <p className="text-sm text-gray-600 mb-1">Active Users</p>
+                <h3 className="text-2xl font-bold text-orange-600">{stats.activeUsers.toLocaleString()}</h3>
+              </div>
+              <div className="p-3 bg-orange-50 rounded-lg">
+                <Users className="w-6 h-6 text-orange-600" />
+              </div>
+            </div>
+            <div className="flex items-center text-sm text-green-600">
+              <TrendingUp className="w-4 h-4 mr-1" />
+              <span>{stats.newUsers} new this month</span>
+            </div>
+          </div>
+        </div>
+
         {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Recent Events */}
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-gray-900">Recent Events</h2>
@@ -269,7 +359,6 @@ const AdminDashboard = () => {
             </div>
           </div>
 
-          {/* Pending Requests */}
           <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
             <div className="flex items-center justify-between mb-6">
               <h2 className="text-xl font-bold text-gray-900">Pending Requests</h2>
@@ -309,12 +398,10 @@ const AdminDashboard = () => {
           </div>
         </div>
 
-        {/* Platform Health */}
         <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
           <h2 className="text-xl font-bold text-gray-900 mb-6">Platform Health</h2>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {/* Server Status */}
             <div>
               <h3 className="text-sm font-medium text-gray-700 mb-3">Server Status</h3>
               <div className="flex items-center space-x-2">
@@ -323,7 +410,6 @@ const AdminDashboard = () => {
               </div>
             </div>
 
-            {/* Storage Usage */}
             <div>
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-sm font-medium text-gray-700">Storage Usage</h3>
@@ -340,7 +426,6 @@ const AdminDashboard = () => {
               <p className="text-xs text-gray-500">Database</p>
             </div>
 
-            {/* API Response Time */}
             <div>
               <h3 className="text-sm font-medium text-gray-700 mb-3">API Response Time</h3>
               <div className="flex items-baseline space-x-2">
@@ -349,7 +434,7 @@ const AdminDashboard = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );

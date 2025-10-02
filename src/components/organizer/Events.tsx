@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import { Plus, Search, Calendar, Ticket, Users, Settings, BarChart3, CreditCard, TrendingUp, ArrowLeft, Trash2 } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
+import Link from 'next/link';
 
 interface Event {
   id: number;
@@ -163,13 +164,12 @@ const MyEventsPage = () => {
             <h1 className="text-4xl font-bold text-gray-900 mb-2">My Events</h1>
             <p className="text-gray-600">Manage and track all your events</p>
           </div>
-          <button
-            onClick={() => alert('Create Event clicked')}
+          <Link href={"/organizer/events/create"}
             className="flex items-center gap-2 bg-purple-600 hover:bg-purple-700 text-white font-medium px-5 py-2.5 rounded-lg transition-colors"
           >
             <Plus className="w-5 h-5" />
             Create Event
-          </button>
+          </Link>
         </div>
 
         {/* Filters */}

@@ -3,24 +3,24 @@
 import React, { useState } from 'react';
 import { DollarSign, Building2, Ticket, Users, TrendingUp } from 'lucide-react';
 
-interface Event {
-  id: number;
-  name: string;
-  organizer: string;
-  revenue: number;
-  ticketsSold: number;
-  performance: number;
-}
+// interface Event {
+//   id: number;
+//   name: string;
+//   organizer: string;
+//   revenue: number;
+//   ticketsSold: number;
+//   performance: number;
+// }
 
-interface Transaction {
-  id: string;
-  type: 'Purchase' | 'Fee Collection';
-  event: string;
-  amount: number;
-  platformFee: number;
-  time: string;
-  status: 'COMPLETED' | 'PENDING';
-}
+// interface Transaction {
+//   id: string;
+//   type: 'Purchase' | 'Fee Collection';
+//   event: string;
+//   amount: number;
+//   platformFee: number;
+//   time: string;
+//   status: 'COMPLETED' | 'PENDING';
+// }
 
 const App: React.FC = () => {
   const [timeRange, setTimeRange] = useState<string>('Last 30 days');
@@ -37,41 +37,41 @@ const App: React.FC = () => {
     newUsers: 287
   };
 
-  const revenueData = [
-    { month: 'Oct 2024', revenue: 450000000, fees: 4500000 },
-    { month: 'Nov 2024', revenue: 320000000, fees: 3200000 },
-    { month: 'Dec 2024', revenue: 580000000, fees: 5800000 },
-    { month: 'Jan 2025', revenue: 825000000, fees: 8250000 }
-  ];
+  // const revenueData = [
+  //   { month: 'Oct 2024', revenue: 450000000, fees: 4500000 },
+  //   { month: 'Nov 2024', revenue: 320000000, fees: 3200000 },
+  //   { month: 'Dec 2024', revenue: 580000000, fees: 5800000 },
+  //   { month: 'Jan 2025', revenue: 825000000, fees: 8250000 }
+  // ];
 
-  const userGrowthData = [
-    { month: 'Oct 2024', total: 1024, new: 234 },
-    { month: 'Nov 2024', total: 1186, new: 162 },
-    { month: 'Dec 2024', total: 1398, new: 212 },
-    { month: 'Jan 2025', total: 1543, new: 287 }
-  ];
+  // const userGrowthData = [
+  //   { month: 'Oct 2024', total: 1024, new: 234 },
+  //   { month: 'Nov 2024', total: 1186, new: 162 },
+  //   { month: 'Dec 2024', total: 1398, new: 212 },
+  //   { month: 'Jan 2025', total: 1543, new: 287 }
+  // ];
 
-  const events: Event[] = [
-    { id: 1, name: 'Tech Conference 2025', organizer: 'TechTalks ID', revenue: 42500000, ticketsSold: 250, performance: 83 },
-    { id: 2, name: 'Summer Music Festival', organizer: 'EventMaster Indonesia', revenue: 15000000, ticketsSold: 50, performance: 10 },
-    { id: 3, name: 'Blockchain Workshop', organizer: 'Blockchain Indonesia', revenue: 2000000, ticketsSold: 20, performance: 20 },
-    { id: 4, name: 'Rock Concert: Thunder Night', organizer: 'RockFest Indonesia', revenue: 0, ticketsSold: 0, performance: 0 }
-  ];
+  // const events: Event[] = [
+  //   { id: 1, name: 'Tech Conference 2025', organizer: 'TechTalks ID', revenue: 42500000, ticketsSold: 250, performance: 83 },
+  //   { id: 2, name: 'Summer Music Festival', organizer: 'EventMaster Indonesia', revenue: 15000000, ticketsSold: 50, performance: 10 },
+  //   { id: 3, name: 'Blockchain Workshop', organizer: 'Blockchain Indonesia', revenue: 2000000, ticketsSold: 20, performance: 20 },
+  //   { id: 4, name: 'Rock Concert: Thunder Night', organizer: 'RockFest Indonesia', revenue: 0, ticketsSold: 0, performance: 0 }
+  // ];
 
-  const transactions: Transaction[] = [
-    { id: 'tx_001', type: 'Purchase', event: 'Tech Conference 2025', amount: 150000, platformFee: 1500, time: '2025-01-22 14:30', status: 'COMPLETED' },
-    { id: 'tx_002', type: 'Purchase', event: 'Summer Music Festival', amount: 250000, platformFee: 2500, time: '2025-01-22 13:15', status: 'COMPLETED' },
-    { id: 'tx_003', type: 'Fee Collection', event: 'Blockchain Workshop', amount: 100000, platformFee: 1000, time: '2025-01-22 12:00', status: 'COMPLETED' },
-    { id: 'tx_004', type: 'Purchase', event: 'Rock Concert: Thunder Night', amount: 350000, platformFee: 3500, time: '2025-01-22 11:45', status: 'PENDING' }
-  ];
+  // const transactions: Transaction[] = [
+  //   { id: 'tx_001', type: 'Purchase', event: 'Tech Conference 2025', amount: 150000, platformFee: 1500, time: '2025-01-22 14:30', status: 'COMPLETED' },
+  //   { id: 'tx_002', type: 'Purchase', event: 'Summer Music Festival', amount: 250000, platformFee: 2500, time: '2025-01-22 13:15', status: 'COMPLETED' },
+  //   { id: 'tx_003', type: 'Fee Collection', event: 'Blockchain Workshop', amount: 100000, platformFee: 1000, time: '2025-01-22 12:00', status: 'COMPLETED' },
+  //   { id: 'tx_004', type: 'Purchase', event: 'Rock Concert: Thunder Night', amount: 350000, platformFee: 3500, time: '2025-01-22 11:45', status: 'PENDING' }
+  // ];
 
   const formatCurrency = (amount: number): string => {
     return `IDR ${amount.toLocaleString('id-ID')}`;
   };
 
 
-  const getMaxRevenue = () => Math.max(...revenueData.map(d => d.revenue));
-  const getMaxUsers = () => Math.max(...userGrowthData.map(d => d.total));
+  // const getMaxRevenue = () => Math.max(...revenueData.map(d => d.revenue));
+  // const getMaxUsers = () => Math.max(...userGrowthData.map(d => d.total));
 
   return (
     <div className="min-h-screen bg-gray-50 p-6">
@@ -156,8 +156,7 @@ const App: React.FC = () => {
         </div>
 
         {/* Charts */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-          {/* Revenue Trend */}
+        {/* <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
             <h3 className="text-lg font-bold text-gray-900 mb-1">Revenue Trend</h3>
             <p className="text-sm text-gray-600 mb-6">Monthly revenue and platform fees</p>
@@ -182,7 +181,6 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* User Growth */}
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
             <h3 className="text-lg font-bold text-gray-900 mb-1">User Growth</h3>
             <p className="text-sm text-gray-600 mb-6">Platform user acquisition</p>
@@ -208,7 +206,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Top Performing Events */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-8">
           <h3 className="text-lg font-bold text-gray-900 mb-1">Top Performing Events</h3>
           <p className="text-sm text-gray-600 mb-6">Events ranked by revenue and ticket sales</p>
@@ -255,7 +252,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Recent Transactions */}
         <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200 mb-8">
           <h3 className="text-lg font-bold text-gray-900 mb-1">Recent Platform Transactions</h3>
           <p className="text-sm text-gray-600 mb-6">Latest blockchain transactions and fee collections</p>
@@ -305,7 +301,6 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-200">
             <h3 className="text-sm text-gray-600 mb-2">Average Ticket Price</h3>
@@ -324,7 +319,7 @@ const App: React.FC = () => {
             <p className="text-3xl font-bold text-green-600 mb-1">92%</p>
             <p className="text-sm text-gray-500">Non-cancelled events</p>
           </div>
-        </div>
+        </div> */}
       </div>
     </div>
   );
