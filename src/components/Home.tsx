@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useState } from 'react';
-import { Music, Monitor, Trophy, Palette, GraduationCap, UtensilsCrossed, Film, Theater, ChevronRight, Shield, CreditCard, ShoppingBag, Grid3x3, Ticket, ShieldCheck } from 'lucide-react';
+import { Music, Monitor, Trophy, Palette, GraduationCap, UtensilsCrossed, Film, Theater, ChevronRight } from 'lucide-react';
 
 interface Event {
   id: string;
@@ -11,13 +11,6 @@ interface Event {
   category: string;
   price: number;
   image: string;
-}
-
-interface Testimonial {
-  name: string;
-  role: string;
-  quote: string;
-  avatar: string;
 }
 
 const App: React.FC = () => {
@@ -70,78 +63,6 @@ const App: React.FC = () => {
       category: 'MUSIC',
       price: 350,
       image: 'rock-concert'
-    }
-  ];
-
-  const features = [
-    {
-      icon: Shield,
-      title: 'Anti-Counterfeit Protection',
-      description: 'Each ticket is a unique NFT with dynamic QR codes. Fake tickets are impossible.'
-    },
-    {
-      icon: CreditCard,
-      title: 'IDRX Native Payments',
-      description: 'Pay with Indonesian digital currency. We handle all the blockchain complexity automatically.'
-    },
-    {
-      icon: ShoppingBag,
-      title: 'Smart Marketplace',
-      description: 'Resell tickets safely with automatic fair pricing and instant payments.'
-    },
-    {
-      icon: Grid3x3,
-      title: 'Flexible Event Options',
-      description: 'Perfect for any event size. Choose Web2-friendly or full Web3 experience.'
-    },
-    {
-      icon: Ticket,
-      title: 'Complete Transparency',
-      description: 'Full ticket history on Lisk blockchain. Verify authenticity instantly.'
-    },
-    {
-      icon: ShieldCheck,
-      title: 'Enterprise Security',
-      description: 'Multi-layered protection trusted by professional organizers across Indonesia.'
-    }
-  ];
-
-  const testimonials: Testimonial[] = [
-    {
-      name: 'Sari Wijaya',
-      role: 'Jakarta',
-      quote: 'Buying with IDRX is simple and reselling happened instantly with fair pricing built-in.',
-      avatar: '👩'
-    },
-    {
-      name: 'Budi Santoso',
-      role: 'Event Organizer',
-      quote: 'The staff system and automatic royalties transformed how I manage events.',
-      avatar: '👨'
-    },
-    {
-      name: 'Maya Chen',
-      role: 'Community Leader',
-      quote: 'Having both Web2 and Web3 options means I can serve any audience perfectly.',
-      avatar: '👩'
-    },
-    {
-      name: 'Rizki Pratama',
-      role: 'Festival Producer',
-      quote: 'Burn-to-verify eliminated fraud and automatic refunds save us hours of work.',
-      avatar: '👨'
-    },
-    {
-      name: 'Rini Hartati',
-      role: 'First-time User',
-      quote: 'Paying with IDRX feels like any payment app, but my tickets are blockchain-secured.',
-      avatar: '👩'
-    },
-    {
-      name: 'Aditya Pratama',
-      role: 'Conference Director',
-      quote: 'Real-time analytics help me plan better events and grow my audience.',
-      avatar: '👨'
     }
   ];
 
@@ -291,71 +212,6 @@ const App: React.FC = () => {
                       {event.category}
                     </span>
                     <span className="font-bold text-purple-600">{formatCurrency(event.price)}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Features Section */}
-      <div className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                Blockchain-Powered Ticketing
-              </span>
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Lummy transforms Indonesian event ticketing with advanced blockchain technology for every type of event.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, idx) => {
-              const Icon = feature.icon;
-              return (
-                <div key={idx} className="text-center">
-                  <div className="w-16 h-16 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-purple-600" />
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </div>
-
-      {/* Testimonials */}
-      <div className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
-                What People Are Saying
-              </span>
-            </h2>
-            <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-              Hear from event-goers and organizers who are already enjoying the benefits of blockchain tickets.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 border border-gray-200 relative">
-                <div className="text-4xl text-purple-200 mb-4">&apos;</div>
-                <p className="text-gray-700 italic mb-6">{testimonial.quote}</p>
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center text-2xl">
-                    {testimonial.avatar}
-                  </div>
-                  <div>
-                    <p className="font-semibold text-gray-900">{testimonial.name}</p>
-                    <p className="text-sm text-gray-500">{testimonial.role}</p>
                   </div>
                 </div>
               </div>

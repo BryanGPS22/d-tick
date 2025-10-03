@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar'
+import NavbarHome from '@/components/NavbarHome'
 import React from 'react'
 import Home from '@/components/Home'
 import Footer from '@/components/Footer'
@@ -6,7 +6,7 @@ import Footer from '@/components/Footer'
 const page = () => {
   return (
     <div>
-      <Navbar />
+      <NavbarHome />
       <Home />
       <Footer />
     </div>

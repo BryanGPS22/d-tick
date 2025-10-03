@@ -11,9 +11,11 @@ interface NavItem {
 }
 
 const navItems: NavItem[] = [
-  { label: "Dashboard", href: "/organizer" },
-  { label: "Events", href: "/organizer/events" },
-  { label: "Finance", href: "/organizer/finance" },
+  { label: "Home", href: "/" },
+  { label: "Events", href: "/events" },
+  { label: "Marketplace", href: "/marketplace" },
+  { label: "My Tickets", href: "/tickets" },
+  { label: "Organizer Request", href: "/organizer-request" },
   // { label: "Profile", href: "/profile" },
 ];
 
@@ -24,7 +26,7 @@ const userRoles: { role: UserRole; icon: string; url?: string }[] = [
 ];
 
 export default function Navbar() {
-  const [activeRole, setActiveRole] = useState<UserRole>("Organizer");
+  const [activeRole, setActiveRole] = useState<UserRole>("Customer");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 

@@ -1,4 +1,4 @@
-import Navbar from '@/components/Navbar'
+import Navbar from '@/components/NavbarCustomer'
 import React from 'react'
 import Isi from "@/components/events/Isi"
 import Footer from '@/components/Footer'

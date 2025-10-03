@@ -12,21 +12,17 @@ interface NavItem {
 
 const navItems: NavItem[] = [
   { label: "Home", href: "/" },
-  { label: "Events", href: "/events" },
   { label: "Marketplace", href: "/marketplace" },
-  { label: "My Tickets", href: "/tickets" },
-  { label: "Organizer Request", href: "/organizer-request" },
   // { label: "Profile", href: "/profile" },
 ];
 
 const userRoles: { role: UserRole; icon: string; url?: string }[] = [
-  { role: "Customer", icon: "👤", url: "/" },
+  { role: "Customer", icon: "👤", url: "/events" },
   { role: "Organizer", icon: "👥", url: "/organizer" },
   { role: "Admin", icon: "🔧", url: "/admin" },
 ];
 
 export default function Navbar() {
-  const [activeRole, setActiveRole] = useState<UserRole>("Customer");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -64,9 +60,9 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
+          <Link href={"/"} className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
             <span className="text-white text-xl font-bold">D</span>
-          </div>
+          </Link>
           <span className="text-xl md:text-2xl font-bold text-purple-600">Tick</span>
         </div>
 
@@ -92,7 +88,7 @@ export default function Navbar() {
               className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-2 bg-purple-100 text-purple-600 rounded-lg hover:bg-purple-200 transition-colors font-medium"
             >
               <span className="text-purple-600">👤</span>
-              <span className="hidden sm:inline">{activeRole}</span>
+              <span className="hidden sm:inline">Customer</span>
               <span className="text-sm">▼</span>
             </button>
 
@@ -103,22 +99,15 @@ export default function Navbar() {
                   <button
                     key={item.role}
                     onClick={() => {
-                      setActiveRole(item.role);
                       setIsDropdownOpen(false);
                     }}
-                    className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors ${
-                      activeRole === item.role ? "bg-purple-50" : ""
-                    }`}
+                    className={`w-full flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors`}
                   >
                     <span>{item.icon}</span>
                     <Link href={item.url || "#"} className="font-medium text-gray-700">
                       {item.role}
                     </Link>
-                    {activeRole === item.role && item.url && (
-                      <span className="ml-auto text-xs bg-blue-100 text-blue-600 px-2 py-1 rounded">
-                        ACTIVE
-                      </span>
-                    )}
+                    
                   </button>
                 ))}
               </div>

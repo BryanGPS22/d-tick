@@ -19,7 +19,7 @@ const navItems: NavItem[] = [
 ];
 
 const userRoles: { role: UserRole; icon: string; url?: string }[] = [
-  { role: "Customer", icon: "👤", url: "/" },
+  { role: "Customer", icon: "👤", url: "/events" },
   { role: "Organizer", icon: "👥", url: "/organizer" },
   { role: "Admin", icon: "🔧", url: "/admin" },
 ];
@@ -63,9 +63,9 @@ export default function Navbar() {
 
         {/* Logo */}
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
+          <Link href={"/"} className="w-8 h-8 bg-purple-500 rounded flex items-center justify-center">
             <span className="text-white text-xl font-bold">D</span>
-          </div>
+          </Link>
           <span className="text-xl md:text-2xl font-bold text-purple-600">Tick</span>
         </div>
 
