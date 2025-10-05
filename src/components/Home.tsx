@@ -72,52 +72,52 @@ const App: React.FC = () => {
 
   const getCategoryColor = (category: string): string => {
     const colors: { [key: string]: string } = {
-      'MUSIC': 'bg-purple-100 text-purple-700',
-      'TECHNOLOGY': 'bg-blue-100 text-blue-700',
-      'WORKSHOP': 'bg-orange-100 text-orange-700',
-      'SPORTS': 'bg-green-100 text-green-700'
+      'MUSIC': 'bg-purple-900 text-purple-300',
+      'TECHNOLOGY': 'bg-blue-900 text-blue-300',
+      'WORKSHOP': 'bg-orange-900 text-orange-300',
+      'SPORTS': 'bg-green-900 text-green-300'
     };
-    return colors[category] || 'bg-gray-100 text-gray-700';
+    return colors[category] || 'bg-gray-800 text-gray-300';
   };
 
   const getEventGradient = (index: number): string => {
     const gradients = [
-      'from-purple-400 to-pink-500',
-      'from-blue-400 to-cyan-500',
-      'from-orange-400 to-red-500',
-      'from-green-400 to-teal-500'
+      'from-purple-600 to-pink-600',
+      'from-blue-600 to-cyan-600',
+      'from-orange-600 to-red-600',
+      'from-green-600 to-teal-600'
     ];
     return gradients[index % gradients.length];
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gray-950">
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Left Content */}
           <div>
             <h1 className="text-5xl lg:text-6xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Discover Events,
               </span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Secure with
               </span>
               <br />
-              <span className="bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Blockchain
               </span>
             </h1>
-            <p className="text-gray-600 text-lg mb-8">
+            <p className="text-gray-400 text-lg mb-8">
               Lummy is a revolutionary NFT ticketing platform that ensures your tickets are authentic, secure, and easy to use or transfer.
             </p>
             <div className="flex gap-4">
               <button className="px-8 py-4 bg-purple-600 hover:bg-purple-700 text-white font-semibold rounded-lg transition-colors">
                 Explore Events
               </button>
-              <button className="px-8 py-4 border-2 border-purple-600 text-purple-600 hover:bg-purple-50 font-semibold rounded-lg transition-colors">
+              <button className="px-8 py-4 border-2 border-purple-600 text-purple-400 hover:bg-purple-950 font-semibold rounded-lg transition-colors">
                 Browse Marketplace
               </button>
             </div>
@@ -136,20 +136,20 @@ const App: React.FC = () => {
               </div>
 
               {/* Ticket 1 */}
-              <div className="bg-white rounded-2xl p-6 shadow-xl transform -rotate-6 mb-4 relative z-10 w-80">
-                <h3 className="font-bold text-gray-900 mb-1">Summer Music Festival</h3>
-                <p className="text-sm text-gray-600 mb-3">VIP Pass • NFT Secured</p>
-                <div className="bg-gray-100 h-16 rounded flex items-center justify-center">
-                  <div className="text-xs text-gray-500">QR</div>
+              <div className="bg-gray-800 rounded-2xl p-6 shadow-xl transform -rotate-6 mb-4 relative z-10 w-80">
+                <h3 className="font-bold text-gray-100 mb-1">Summer Music Festival</h3>
+                <p className="text-sm text-gray-400 mb-3">VIP Pass • NFT Secured</p>
+                <div className="bg-gray-700 h-16 rounded flex items-center justify-center">
+                  <div className="text-xs text-gray-400">QR</div>
                 </div>
               </div>
 
               {/* Ticket 2 */}
-              <div className="bg-white rounded-2xl p-6 shadow-xl transform rotate-3 relative z-20 w-80">
-                <h3 className="font-bold text-gray-900 mb-1">Tech Conference 2025</h3>
-                <p className="text-sm text-gray-600 mb-3">Premium Access • Blockchain Verified</p>
-                <div className="bg-gray-100 h-16 rounded flex items-center justify-center">
-                  <div className="text-xs text-gray-500">QR</div>
+              <div className="bg-gray-800 rounded-2xl p-6 shadow-xl transform rotate-3 relative z-20 w-80">
+                <h3 className="font-bold text-gray-100 mb-1">Tech Conference 2025</h3>
+                <p className="text-sm text-gray-400 mb-3">Premium Access • Blockchain Verified</p>
+                <div className="bg-gray-700 h-16 rounded flex items-center justify-center">
+                  <div className="text-xs text-gray-400">QR</div>
                 </div>
               </div>
             </div>
@@ -167,14 +167,14 @@ const App: React.FC = () => {
                   onClick={() => setSelectedCategory(category.name)}
                   className={`flex flex-col items-center justify-center p-6 rounded-2xl border-2 transition-all ${
                     selectedCategory === category.name
-                      ? 'border-purple-500 bg-purple-50'
-                      : 'border-gray-200 hover:border-gray-300 bg-white'
+                      ? 'border-purple-500 bg-purple-950'
+                      : 'border-gray-800 hover:border-gray-700 bg-gray-900'
                   }`}
                 >
-                  <div className={`w-12 h-12 rounded-full bg-${category.color}-100 flex items-center justify-center mb-3`}>
-                    <Icon className={`w-6 h-6 text-${category.color}-600`} />
+                  <div className={`w-12 h-12 rounded-full bg-${category.color}-950 flex items-center justify-center mb-3`}>
+                    <Icon className={`w-6 h-6 text-${category.color}-400`} />
                   </div>
-                  <span className="text-sm font-medium text-gray-700">{category.name}</span>
+                  <span className="text-sm font-medium text-gray-300">{category.name}</span>
                 </button>
               );
             })}
@@ -183,11 +183,11 @@ const App: React.FC = () => {
       </div>
 
       {/* Featured Events */}
-      <div className="bg-gray-50 py-16">
+      <div className="bg-gray-900 py-16">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex justify-between items-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900">Featured Events</h2>
-            <button className="flex items-center gap-2 text-purple-600 hover:text-purple-700 font-semibold">
+            <h2 className="text-3xl font-bold text-gray-100">Featured Events</h2>
+            <button className="flex items-center gap-2 text-purple-400 hover:text-purple-300 font-semibold">
               View all events
               <ChevronRight className="w-5 h-5" />
             </button>
@@ -195,7 +195,7 @@ const App: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredEvents.map((event, idx) => (
-              <div key={event.id} className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow">
+              <div key={event.id} className="bg-gray-800 rounded-2xl overflow-hidden border border-gray-700 hover:shadow-2xl hover:shadow-purple-900/20 transition-shadow">
                 <div className={`h-48 bg-gradient-to-br ${getEventGradient(idx)} relative`}>
                   <img 
                     src={`https://placehold.co/400x300/6366f1/ffffff?text=${event.image}`}
@@ -204,14 +204,14 @@ const App: React.FC = () => {
                   />
                 </div>
                 <div className="p-5">
-                  <p className="text-sm text-gray-500 mb-2">{event.date}</p>
-                  <h3 className="font-bold text-gray-900 text-lg mb-2">{event.name}</h3>
-                  <p className="text-sm text-gray-600 mb-4">{event.location}</p>
+                  <p className="text-sm text-gray-400 mb-2">{event.date}</p>
+                  <h3 className="font-bold text-gray-100 text-lg mb-2">{event.name}</h3>
+                  <p className="text-sm text-gray-400 mb-4">{event.location}</p>
                   <div className="flex items-center justify-between">
                     <span className={`text-xs font-semibold px-3 py-1 rounded-full ${getCategoryColor(event.category)}`}>
                       {event.category}
                     </span>
-                    <span className="font-bold text-purple-600">{formatCurrency(event.price)}</span>
+                    <span className="font-bold text-purple-400">{formatCurrency(event.price)}</span>
                   </div>
                 </div>
               </div>

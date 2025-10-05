@@ -177,18 +177,18 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-950">
       {/* Header */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-gray-900 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-8">
           <div className="flex justify-between items-start mb-2">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">NFT Ticket Marketplace</h1>
-              <p className="text-gray-600 mt-2">Buy verified resale tickets for upcoming events. All transactions secured on the blockchain.</p>
+              <h1 className="text-3xl font-bold text-gray-100">NFT Ticket Marketplace</h1>
+              <p className="text-gray-400 mt-2">Buy verified resale tickets for upcoming events. All transactions secured on the blockchain.</p>
             </div>
             <button
               onClick={handleRefresh}
-              className="flex items-center gap-2 px-4 py-2 border border-purple-300 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors"
+              className="flex items-center gap-2 px-4 py-2 border border-purple-700 text-purple-400 rounded-lg hover:bg-purple-950 transition-colors"
             >
               <RefreshCw className="w-4 h-4" />
               Refresh
@@ -198,17 +198,17 @@ const App: React.FC = () => {
       </div>
 
       {/* Filters */}
-      <div className="bg-white border-b border-gray-200">
+      <div className="bg-gray-900 border-b border-gray-800">
         <div className="max-w-7xl mx-auto px-6 py-6">
           {/* Search Bar */}
           <div className="relative mb-4">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500 w-5 h-5" />
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search events, categories, or locations..."
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+              className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent"
             />
           </div>
 
@@ -217,7 +217,7 @@ const App: React.FC = () => {
             <select
               value={selectedCategory}
               onChange={(e) => setSelectedCategory(e.target.value)}
-              className="px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 appearance-none cursor-pointer"
+              className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none cursor-pointer"
             >
               {categories.map(cat => (
                 <option key={cat} value={cat}>{cat}</option>
@@ -227,7 +227,7 @@ const App: React.FC = () => {
             <select
               value={selectedLocation}
               onChange={(e) => setSelectedLocation(e.target.value)}
-              className="px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 appearance-none cursor-pointer"
+              className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none cursor-pointer"
             >
               {locations.map(loc => (
                 <option key={loc} value={loc}>{loc}</option>
@@ -239,13 +239,13 @@ const App: React.FC = () => {
               value={selectedDate}
               onChange={(e) => setSelectedDate(e.target.value)}
               placeholder="mm/dd/yyyy"
-              className="px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600"
             />
 
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-purple-500 appearance-none cursor-pointer"
+              className="px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 appearance-none cursor-pointer"
             >
               {sortOptions.map(opt => (
                 <option key={opt} value={opt}>{opt}</option>
@@ -254,7 +254,7 @@ const App: React.FC = () => {
 
             <button
               onClick={handleReset}
-              className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              className="flex items-center justify-center gap-2 px-4 py-3 border border-gray-700 text-gray-300 rounded-lg hover:bg-gray-800 transition-colors"
             >
               <X className="w-4 h-4" />
               Reset
@@ -268,10 +268,10 @@ const App: React.FC = () => {
         {filteredTickets.length === 0 ? (
           /* Empty State */
           <div className="flex flex-col items-center justify-center py-20">
-            <div className="w-32 h-32 bg-gray-200 rounded-2xl flex items-center justify-center mb-6">
-              <Ticket className="w-16 h-16 text-gray-400" />
+            <div className="w-32 h-32 bg-gray-800 rounded-2xl flex items-center justify-center mb-6">
+              <Ticket className="w-16 h-16 text-gray-600" />
             </div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">No resale tickets found</h3>
+            <h3 className="text-xl font-semibold text-gray-300 mb-2">No resale tickets found</h3>
             <p className="text-gray-500 mb-6">Try adjusting your filters or check back later</p>
             <button
               onClick={() => setShowAllTickets(true)}
@@ -285,16 +285,16 @@ const App: React.FC = () => {
           /* Ticket Listings */
           <div>
             <div className="flex justify-between items-center mb-6">
-              <p className="text-gray-600">
-                Showing <span className="font-semibold text-gray-900">{filteredTickets.length}</span> available tickets
+              <p className="text-gray-400">
+                Showing <span className="font-semibold text-gray-200">{filteredTickets.length}</span> available tickets
               </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredTickets.map((ticket) => (
-                <div key={ticket.id} className="bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-lg transition-shadow">
+                <div key={ticket.id} className="bg-gray-800 rounded-xl border border-gray-700 overflow-hidden hover:shadow-2xl hover:shadow-purple-900/20 transition-shadow">
                   {/* Ticket Image */}
-                  <div className="h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                  <div className="h-48 bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
                     <span className="text-6xl">{getTicketIcon(ticket.eventType)}</span>
                   </div>
 
@@ -302,40 +302,40 @@ const App: React.FC = () => {
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
                       <div className="flex-1">
-                        <h3 className="font-bold text-gray-900 text-lg mb-1">{ticket.eventName}</h3>
-                        <p className="text-sm text-gray-600">{ticket.eventType}</p>
+                        <h3 className="font-bold text-gray-100 text-lg mb-1">{ticket.eventName}</h3>
+                        <p className="text-sm text-gray-400">{ticket.eventType}</p>
                       </div>
                       {ticket.verified && (
-                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-green-100 text-green-700">
+                        <span className="inline-flex items-center px-2 py-1 rounded-full text-xs font-semibold bg-green-900 text-green-300">
                           ✓ Verified
                         </span>
                       )}
                     </div>
 
                     <div className="space-y-2 mb-4">
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-400">
                         <span className="mr-2">📍</span>
                         {ticket.location}
                       </div>
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-400">
                         <span className="mr-2">📅</span>
                         {formatDate(ticket.date)}
                       </div>
-                      <div className="flex items-center text-sm text-gray-600">
+                      <div className="flex items-center text-sm text-gray-400">
                         <span className="mr-2">👤</span>
                         Seller: <span className="font-mono ml-1">{ticket.seller}</span>
                       </div>
                     </div>
 
-                    <div className="border-t border-gray-200 pt-4">
+                    <div className="border-t border-gray-700 pt-4">
                       <div className="flex items-center justify-between mb-3">
                         <div>
                           <p className="text-sm text-gray-500 line-through">{formatCurrency(ticket.originalPrice)}</p>
-                          <p className="text-2xl font-bold text-purple-600">{formatCurrency(ticket.price)}</p>
+                          <p className="text-2xl font-bold text-purple-400">{formatCurrency(ticket.price)}</p>
                         </div>
                         <div className="text-right">
-                          <p className="text-sm text-gray-600">Available</p>
-                          <p className="text-lg font-bold text-gray-900">{ticket.quantity} ticket{ticket.quantity > 1 ? 's' : ''}</p>
+                          <p className="text-sm text-gray-400">Available</p>
+                          <p className="text-lg font-bold text-gray-200">{ticket.quantity} ticket{ticket.quantity > 1 ? 's' : ''}</p>
                         </div>
                       </div>
 

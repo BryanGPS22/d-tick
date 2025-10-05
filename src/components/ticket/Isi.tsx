@@ -127,13 +127,13 @@ export default function TicketModals() {
   const getStatusColor = (status: 'active' | 'used' | 'refunded') => {
     switch (status) {
       case 'active':
-        return 'bg-green-500';
+        return 'bg-green-600';
       case 'used':
-        return 'bg-gray-500';
+        return 'bg-gray-600';
       case 'refunded':
-        return 'bg-orange-500';
+        return 'bg-orange-600';
       default:
-        return 'bg-gray-500';
+        return 'bg-gray-600';
     }
   };
 
@@ -141,50 +141,50 @@ export default function TicketModals() {
   const getTicketTypeColor = (status: 'active' | 'used' | 'refunded') => {
     switch (status) {
       case 'active':
-        return 'bg-gradient-to-r from-purple-500 to-purple-600';
-      case 'used':
         return 'bg-gradient-to-r from-purple-600 to-purple-700';
+      case 'used':
+        return 'bg-gradient-to-r from-purple-700 to-purple-800';
       case 'refunded':
-        return 'bg-gradient-to-r from-purple-500 to-purple-600';
+        return 'bg-gradient-to-r from-purple-600 to-purple-700';
       default:
-        return 'bg-gradient-to-r from-purple-500 to-purple-600';
+        return 'bg-gradient-to-r from-purple-600 to-purple-700';
     }
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen">
+    <div className="p-8 bg-gray-950 min-h-screen">
       {/* Demo Buttons */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         <div className="flex justify-between items-start mb-8">
           {/* Header */}
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">My Tickets</h1>
-            <p className="text-gray-600">Demo tickets (connect wallet for real NFTs)</p>
+            <h1 className="text-4xl font-bold text-gray-100 mb-2">My Tickets</h1>
+            <p className="text-gray-400">Demo tickets (connect wallet for real NFTs)</p>
           </div>
 
           {/* Search Bar */}
           <div className="w-80">
             <div className="relative">
-              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+              <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">🔍</span>
               <input
                 type="text"
                 placeholder="Search tickets..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+                className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600"
               />
             </div>
           </div>
         </div>
 
         {/* Tabs */}
-        <div className="flex gap-6 border-b border-gray-200 mb-8">
+        <div className="flex gap-6 border-b border-gray-800 mb-8">
           <button
             onClick={() => setActiveTab('all')}
             className={`pb-3 px-2 font-medium transition-colors ${
               activeTab === 'all'
-                ? 'text-purple-600 border-b-2 border-purple-600'
-                : 'text-gray-600 hover:text-purple-600'
+                ? 'text-purple-400 border-b-2 border-purple-400'
+                : 'text-gray-400 hover:text-purple-400'
             }`}
           >
             All Tickets
@@ -193,8 +193,8 @@ export default function TicketModals() {
             onClick={() => setActiveTab('active')}
             className={`pb-3 px-2 font-medium transition-colors flex items-center gap-2 ${
               activeTab === 'active'
-                ? 'text-purple-600 border-b-2 border-purple-600'
-                : 'text-gray-600 hover:text-purple-600'
+                ? 'text-purple-400 border-b-2 border-purple-400'
+                : 'text-gray-400 hover:text-purple-400'
             }`}
           >
             🎫 Active
@@ -203,8 +203,8 @@ export default function TicketModals() {
             onClick={() => setActiveTab('used')}
             className={`pb-3 px-2 font-medium transition-colors ${
               activeTab === 'used'
-                ? 'text-purple-600 border-b-2 border-purple-600'
-                : 'text-gray-600 hover:text-purple-600'
+                ? 'text-purple-400 border-b-2 border-purple-400'
+                : 'text-gray-400 hover:text-purple-400'
             }`}
           >
             Used
@@ -213,8 +213,8 @@ export default function TicketModals() {
             onClick={() => setActiveTab('refunded')}
             className={`pb-3 px-2 font-medium transition-colors ${
               activeTab === 'refunded'
-                ? 'text-purple-600 border-b-2 border-purple-600'
-                : 'text-gray-600 hover:text-purple-600'
+                ? 'text-purple-400 border-b-2 border-purple-400'
+                : 'text-gray-400 hover:text-purple-400'
             }`}
           >
             Refunded
@@ -224,7 +224,7 @@ export default function TicketModals() {
         {/* Tickets Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredTickets.map((ticket) => (
-            <div key={ticket.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow">
+            <div key={ticket.id} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-purple-900/20 transition-shadow border border-gray-700">
               {/* Ticket Header */}
               <div className={`${getTicketTypeColor(ticket.status)} px-4 py-3 flex justify-between items-center`}>
                 <div className="flex items-center gap-2 text-white">
@@ -238,21 +238,21 @@ export default function TicketModals() {
 
               {/* Ticket Content */}
               <div className="p-5">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{ticket.eventName}</h3>
+                <h3 className="text-xl font-bold text-gray-100 mb-3">{ticket.eventName}</h3>
                 
                 <div className="space-y-2 mb-4">
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex items-center gap-2 text-gray-400">
                     <span>📅</span>
                     <span className="text-sm">{ticket.date}</span>
                   </div>
-                  <div className="flex items-center gap-2 text-gray-600">
+                  <div className="flex items-center gap-2 text-gray-400">
                     <span>📍</span>
                     <span className="text-sm">{ticket.location}</span>
                   </div>
                 </div>
 
                 {/* Ticket Image/Status Display */}
-                <div className="mb-4 bg-gray-100 rounded-lg overflow-hidden">
+                <div className="mb-4 bg-gray-900 rounded-lg overflow-hidden">
                   {ticket.status === 'active' && ticket.image ? (
                     <img 
                       src={ticket.image} 
@@ -269,14 +269,14 @@ export default function TicketModals() {
 
                 {/* Action Buttons */}
                 <div className="space-y-2">
-                  <button onClick={() => { const found = sampleTickets.find(t => t.id === ticket.id) || null; setSelectedTicket(found); setShowDetailsModal(!!found); }} className="w-full px-4 py-2 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 transition-colors font-medium flex items-center justify-center gap-2">
+                  <button onClick={() => { const found = sampleTickets.find(t => t.id === ticket.id) || null; setSelectedTicket(found); setShowDetailsModal(!!found); }} className="w-full px-4 py-2 border-2 border-purple-600 text-purple-400 rounded-lg hover:bg-purple-950 transition-colors font-medium flex items-center justify-center gap-2">
                     <span>ℹ️</span>
                     <span>Ticket Details</span>
                   </button>
                   
                   {ticket.status === 'active' && (
                     <div className="grid grid-cols-2 gap-2">
-                      <button onClick={() => { const found = sampleTickets.find(t => t.id === ticket.id) || null; setSelectedTicket(found); setShowTransferModal(!!found); }} className="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium flex items-center justify-center gap-2">
+                      <button onClick={() => { const found = sampleTickets.find(t => t.id === ticket.id) || null; setSelectedTicket(found); setShowTransferModal(!!found); }} className="px-4 py-2 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 transition-colors font-medium flex items-center justify-center gap-2">
                         <span>↔️</span>
                         <span>Transfer</span>
                       </button>
@@ -296,7 +296,7 @@ export default function TicketModals() {
         {filteredTickets.length === 0 && (
           <div className="text-center py-16">
             <div className="text-6xl mb-4">🎫</div>
-            <h3 className="text-xl font-semibold text-gray-700 mb-2">No tickets found</h3>
+            <h3 className="text-xl font-semibold text-gray-300 mb-2">No tickets found</h3>
             <p className="text-gray-500">
               {searchQuery
                 ? 'Try adjusting your search query'
@@ -308,14 +308,14 @@ export default function TicketModals() {
 
       {/* Ticket Details Modal */}
       {showDetailsModal && selectedTicket && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-800 rounded-xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-gray-700">
             {/* Header */}
-            <div className="flex justify-between items-center p-6 border-b">
-              <h2 className="text-2xl font-bold text-gray-900">Ticket Details</h2>
+            <div className="flex justify-between items-center p-6 border-b border-gray-700">
+              <h2 className="text-2xl font-bold text-gray-100">Ticket Details</h2>
               <button
                 onClick={() => setShowDetailsModal(false)}
-                className="text-gray-400 hover:text-gray-600 text-2xl"
+                className="text-gray-400 hover:text-gray-300 text-2xl"
               >
                 ✕
               </button>
@@ -324,13 +324,13 @@ export default function TicketModals() {
             {/* Content */}
             <div className="p-6">
               {/* Ticket Header */}
-              <div className="bg-gradient-to-r from-purple-500 to-purple-600 rounded-lg p-6 text-white mb-6">
+              <div className="bg-gradient-to-r from-purple-600 to-purple-700 rounded-lg p-6 text-white mb-6">
                 <div className="flex justify-between items-start mb-2">
                   <div className="flex items-center gap-2">
                     <span>🎫</span>
                     <span className="font-semibold">Ticket Details</span>
                   </div>
-                  <span className="bg-green-500 px-3 py-1 rounded-full text-sm font-bold">
+                  <span className="bg-green-600 px-3 py-1 rounded-full text-sm font-bold">
                     VALID
                   </span>
                 </div>
@@ -340,66 +340,66 @@ export default function TicketModals() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {/* Left Column - Event Information */}
                 <div>
-                  <h4 className="font-bold text-gray-900 mb-4">Event Information</h4>
+                  <h4 className="font-bold text-gray-100 mb-4">Event Information</h4>
                   
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <span className="text-gray-400">📅</span>
+                      <span className="text-gray-500">📅</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Date</p>
-                        <p className="text-gray-900">{selectedTicket.date}</p>
+                        <p className="text-sm font-semibold text-gray-400">Date</p>
+                        <p className="text-gray-200">{selectedTicket.date}</p>
                       </div>
                     </div>
 
                     <div className="flex gap-3">
-                      <span className="text-gray-400">🕐</span>
+                      <span className="text-gray-500">🕐</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Time</p>
-                        <p className="text-gray-900">{selectedTicket.time}</p>
+                        <p className="text-sm font-semibold text-gray-400">Time</p>
+                        <p className="text-gray-200">{selectedTicket.time}</p>
                       </div>
                     </div>
 
                     <div className="flex gap-3">
-                      <span className="text-gray-400">📍</span>
+                      <span className="text-gray-500">📍</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Location</p>
-                        <p className="text-gray-900">{selectedTicket.location}</p>
+                        <p className="text-sm font-semibold text-gray-400">Location</p>
+                        <p className="text-gray-200">{selectedTicket.location}</p>
                       </div>
                     </div>
                   </div>
 
-                  <h4 className="font-bold text-gray-900 mb-4 mt-6">Ticket Information</h4>
+                  <h4 className="font-bold text-gray-100 mb-4 mt-6">Ticket Information</h4>
                   
                   <div className="space-y-4">
                     <div className="flex gap-3">
-                      <span className="text-gray-400">🎟️</span>
+                      <span className="text-gray-500">🎟️</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Type</p>
-                        <p className="text-gray-900">{selectedTicket.type}</p>
+                        <p className="text-sm font-semibold text-gray-400">Type</p>
+                        <p className="text-gray-200">{selectedTicket.type}</p>
                       </div>
                     </div>
 
                     <div className="flex gap-3">
-                      <span className="text-gray-400">👤</span>
+                      <span className="text-gray-500">👤</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Owner</p>
-                        <p className="text-gray-900 font-mono text-sm">{selectedTicket.owner}</p>
+                        <p className="text-sm font-semibold text-gray-400">Owner</p>
+                        <p className="text-gray-200 font-mono text-sm">{selectedTicket.owner}</p>
                       </div>
                     </div>
 
                     <div className="flex gap-3">
-                      <span className="text-gray-400">🔗</span>
+                      <span className="text-gray-500">🔗</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Token ID</p>
-                        <p className="text-gray-900 font-mono text-sm">{selectedTicket.tokenId}</p>
+                        <p className="text-sm font-semibold text-gray-400">Token ID</p>
+                        <p className="text-gray-200 font-mono text-sm">{selectedTicket.tokenId}</p>
                       </div>
                     </div>
 
                     <div className="flex gap-3">
-                      <span className="text-gray-400">🕐</span>
+                      <span className="text-gray-500">🕐</span>
                       <div>
-                        <p className="text-sm font-semibold text-gray-700">Purchase Date</p>
-                        <p className="text-gray-900">{selectedTicket.purchaseDate}</p>
+                        <p className="text-sm font-semibold text-gray-400">Purchase Date</p>
+                        <p className="text-gray-200">{selectedTicket.purchaseDate}</p>
                       </div>
                     </div>
                   </div>
@@ -407,37 +407,37 @@ export default function TicketModals() {
 
                 {/* Right Column - QR Code */}
                 <div>
-                  <div className="bg-gray-200 rounded-lg h-64 mb-4"></div>
+                  <div className="bg-gray-700 rounded-lg h-64 mb-4"></div>
                   
-                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-                    <p className="text-sm text-blue-800 text-center font-medium">
+                  <div className="bg-blue-950 border border-blue-800 rounded-lg p-4 mb-4">
+                    <p className="text-sm text-blue-300 text-center font-medium">
                       🎫 Show this QR to event staff for check-in
                     </p>
                   </div>
 
-                  <div className="bg-white border border-gray-200 rounded-lg p-4">
+                  <div className="bg-gray-700 border border-gray-600 rounded-lg p-4">
                     <div className="flex items-center justify-center mb-4">
-                      <div className="w-48 h-48 bg-white border-2 border-gray-300 rounded flex items-center justify-center">
+                      <div className="w-48 h-48 bg-white border-2 border-gray-500 rounded flex items-center justify-center">
                         <div className="text-center">
                           <div className="text-6xl mb-2">⬛</div>
-                          <p className="text-xs text-gray-500">QR Code</p>
+                          <p className="text-xs text-gray-700">QR Code</p>
                         </div>
                       </div>
                     </div>
                     
                     <div className="text-center space-y-2">
-                      <p className="text-xs font-semibold text-gray-700">Ticket QR Code</p>
-                      <p className="text-xs text-gray-500 font-mono">ticket-1...et-1</p>
-                      <p className="text-xs text-gray-500">Staff Scanner - Event event-1</p>
-                      <a href="#" className="text-xs text-blue-600 hover:underline block">
+                      <p className="text-xs font-semibold text-gray-300">Ticket QR Code</p>
+                      <p className="text-xs text-gray-400 font-mono">ticket-1...et-1</p>
+                      <p className="text-xs text-gray-400">Staff Scanner - Event event-1</p>
+                      <a href="#" className="text-xs text-blue-400 hover:underline block">
                         URL: https://lummy-ticket.vercel.app/staff/event/event-1/scanner/1
                       </a>
-                      <p className="text-xs font-mono text-gray-700">Token ID: {selectedTicket.tokenId}</p>
-                      <p className="text-xs text-orange-600 flex items-center justify-center gap-1">
+                      <p className="text-xs font-mono text-gray-300">Token ID: {selectedTicket.tokenId}</p>
+                      <p className="text-xs text-orange-400 flex items-center justify-center gap-1">
                         <span>🔒</span>
                         For security: Do not share or screenshot this QR code
                       </p>
-                      <p className="text-xs text-green-600 flex items-center justify-center gap-1">
+                      <p className="text-xs text-green-400 flex items-center justify-center gap-1">
                         <span>✅</span>
                         Staff-only scanner • Secure blockchain verification
                       </p>
@@ -448,7 +448,7 @@ export default function TicketModals() {
 
               {/* Bottom Actions */}
               <div className="mt-6 space-y-3">
-                <button className="w-full px-4 py-3 border-2 border-purple-600 text-purple-600 rounded-lg hover:bg-purple-50 font-medium flex items-center justify-center gap-2">
+                <button className="w-full px-4 py-3 border-2 border-purple-600 text-purple-400 rounded-lg hover:bg-purple-950 font-medium flex items-center justify-center gap-2">
                   <span>🔗</span>
                   View Public NFT Page
                 </button>
@@ -459,7 +459,7 @@ export default function TicketModals() {
                       setShowDetailsModal(false);
                       setShowTransferModal(true);
                     }}
-                    className="px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium flex items-center justify-center gap-2"
+                    className="px-4 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 font-medium flex items-center justify-center gap-2"
                   >
                     <span>↔️</span>
                     Transfer
@@ -476,8 +476,8 @@ export default function TicketModals() {
                   </button>
                 </div>
 
-                <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                  <p className="text-sm text-blue-900">
+                <div className="bg-blue-950 border border-blue-800 rounded-lg p-4">
+                  <p className="text-sm text-blue-300">
                     This ticket is an NFT on the Lisk blockchain, ensuring authenticity and preventing counterfeiting. 
                     You can view full transaction history on the blockchain explorer.
                   </p>
@@ -490,14 +490,14 @@ export default function TicketModals() {
 
       {/* Transfer Modal */}
       {showTransferModal && selectedTicket && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-lg w-full">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-800 rounded-xl max-w-lg w-full border border-gray-700">
             {/* Header */}
-            <div className="flex justify-between items-center p-6 border-b">
-              <h2 className="text-2xl font-bold text-gray-900">Transfer Ticket</h2>
+            <div className="flex justify-between items-center p-6 border-b border-gray-700">
+              <h2 className="text-2xl font-bold text-gray-100">Transfer Ticket</h2>
               <button
                 onClick={() => setShowTransferModal(false)}
-                className="text-gray-400 hover:text-gray-600 text-2xl"
+                className="text-gray-400 hover:text-gray-300 text-2xl"
               >
                 ✕
               </button>
@@ -506,31 +506,31 @@ export default function TicketModals() {
             {/* Content */}
             <div className="p-6">
               {/* Ticket Info */}
-              <div className="bg-gray-50 rounded-lg p-4 mb-6">
+              <div className="bg-gray-700 rounded-lg p-4 mb-6">
                 <div className="flex justify-between items-start mb-3">
-                  <h3 className="text-lg font-bold text-gray-900">{selectedTicket.eventName}</h3>
-                  <span className="bg-red-100 text-red-600 px-3 py-1 rounded text-xs font-bold">
+                  <h3 className="text-lg font-bold text-gray-100">{selectedTicket.eventName}</h3>
+                  <span className="bg-red-900 text-red-300 px-3 py-1 rounded text-xs font-bold">
                     NOT OWNED
                   </span>
                 </div>
-                <p className="text-sm text-gray-600 mb-1">
+                <p className="text-sm text-gray-400 mb-1">
                   {selectedTicket.type} • {selectedTicket.location}
                 </p>
                 <p className="text-xs text-gray-500 mb-2">Token ID: {selectedTicket.tokenId}</p>
-                <p className="text-sm font-semibold text-green-600">
+                <p className="text-sm font-semibold text-green-400">
                   Original Price: {selectedTicket.originalPrice} IDRX
                 </p>
               </div>
 
               {/* Warning */}
-              <div className="bg-orange-50 border border-orange-200 rounded-lg p-4 mb-6">
+              <div className="bg-orange-950 border border-orange-800 rounded-lg p-4 mb-6">
                 <div className="flex gap-3">
-                  <span className="text-orange-600 text-xl">⚠️</span>
+                  <span className="text-orange-400 text-xl">⚠️</span>
                   <div>
-                    <p className="font-semibold text-orange-900 mb-2">
+                    <p className="font-semibold text-orange-300 mb-2">
                       Important: Transfer is permanent and irreversible
                     </p>
-                    <ul className="text-sm text-orange-800 space-y-1 list-disc list-inside">
+                    <ul className="text-sm text-orange-400 space-y-1 list-disc list-inside">
                       <li>The NFT will be removed from your wallet</li>
                       <li>Recipient gains full ownership and transfer rights</li>
                       <li>Enhanced metadata (event name, venue, tier) will be preserved</li>
@@ -542,15 +542,15 @@ export default function TicketModals() {
 
               {/* Input */}
               <div className="mb-6">
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Recipient Wallet Address <span className="text-red-500">*</span>
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
+                  Recipient Wallet Address <span className="text-red-400">*</span>
                 </label>
                 <input
                   type="text"
                   value={recipientAddress}
                   onChange={(e) => setRecipientAddress(e.target.value)}
                   placeholder="0x123456789012345678901234567890123456"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 font-mono text-sm"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600 font-mono text-sm"
                 />
               </div>
 
@@ -558,13 +558,13 @@ export default function TicketModals() {
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowTransferModal(false)}
-                  className="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                  className="flex-1 px-4 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 font-medium"
                 >
                   Cancel
                 </button>
                 <button
                   disabled={!recipientAddress}
-                  className="flex-1 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium disabled:bg-gray-300 disabled:cursor-not-allowed"
+                  className="flex-1 px-4 py-3 bg-purple-600 text-white rounded-lg hover:bg-purple-700 font-medium disabled:bg-gray-600 disabled:cursor-not-allowed"
                 >
                   Ownership Verification Required
                 </button>
@@ -576,14 +576,14 @@ export default function TicketModals() {
 
       {/* Resell Modal */}
       {showResellModal && selectedTicket && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto">
+        <div className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 p-4">
+          <div className="bg-gray-800 rounded-xl max-w-lg w-full max-h-[90vh] overflow-y-auto border border-gray-700">
             {/* Header */}
-            <div className="flex justify-between items-center p-6 border-b sticky top-0 bg-white">
-              <h2 className="text-2xl font-bold text-gray-900">Resell Ticket</h2>
+            <div className="flex justify-between items-center p-6 border-b border-gray-700 sticky top-0 bg-gray-800">
+              <h2 className="text-2xl font-bold text-gray-100">Resell Ticket</h2>
               <button
                 onClick={() => setShowResellModal(false)}
-                className="text-gray-400 hover:text-gray-600 text-2xl"
+                className="text-gray-400 hover:text-gray-300 text-2xl"
               >
                 ✕
               </button>
@@ -593,18 +593,18 @@ export default function TicketModals() {
             <div className="p-6">
               {/* Ticket Info */}
               <div className="flex gap-4 mb-6">
-                <div className="w-20 h-20 bg-gray-300 rounded-lg flex-shrink-0"></div>
+                <div className="w-20 h-20 bg-gray-700 rounded-lg flex-shrink-0"></div>
                 <div className="flex-1">
                   <div className="flex gap-2 mb-2">
-                    <span className="bg-purple-100 text-purple-600 px-3 py-1 rounded text-xs font-bold">
+                    <span className="bg-purple-900 text-purple-300 px-3 py-1 rounded text-xs font-bold">
                       VIP PASS
                     </span>
-                    <span className="bg-green-100 text-green-600 px-3 py-1 rounded text-xs font-bold">
+                    <span className="bg-green-900 text-green-300 px-3 py-1 rounded text-xs font-bold">
                       ORIGINAL: 500 IDRX
                     </span>
                   </div>
-                  <h3 className="font-bold text-gray-900 mb-1">{selectedTicket.eventName}</h3>
-                  <p className="text-sm text-gray-600 flex items-center gap-1">
+                  <h3 className="font-bold text-gray-100 mb-1">{selectedTicket.eventName}</h3>
+                  <p className="text-sm text-gray-400 flex items-center gap-1">
                     <span>📍</span>
                     {selectedTicket.location}
                   </p>
@@ -613,12 +613,12 @@ export default function TicketModals() {
               </div>
 
               {/* Marketplace Terms */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="bg-blue-950 border border-blue-800 rounded-lg p-4 mb-6">
                 <div className="flex gap-3">
-                  <span className="text-blue-600 text-xl">ℹ️</span>
+                  <span className="text-blue-400 text-xl">ℹ️</span>
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-2">Marketplace Listing Terms</h4>
-                    <ul className="text-sm text-blue-800 space-y-1">
+                    <h4 className="font-semibold text-blue-300 mb-2">Marketplace Listing Terms</h4>
+                    <ul className="text-sm text-blue-400 space-y-1">
                       <li>• Your NFT will be transferred to marketplace escrow</li>
                       <li>• You can cancel listing anytime before purchase</li>
                       <li>• Enhanced metadata (event, venue, tier) preserved for buyer</li>
@@ -630,27 +630,27 @@ export default function TicketModals() {
 
               {/* Set Resale Price */}
               <div className="mb-6">
-                <h4 className="font-bold text-gray-900 mb-3">Set Resale Price</h4>
-                <p className="text-sm text-gray-600 mb-3">Original price: IDRX 500</p>
+                <h4 className="font-bold text-gray-100 mb-3">Set Resale Price</h4>
+                <p className="text-sm text-gray-400 mb-3">Original price: IDRX 500</p>
                 
-                <label className="block text-sm font-semibold text-gray-700 mb-2">
+                <label className="block text-sm font-semibold text-gray-300 mb-2">
                   Price (IDRX)
                 </label>
                 <input
                   type="number"
                   value={resellPrice}
                   onChange={(e) => setResellPrice(Number(e.target.value))}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600 text-lg font-semibold"
+                  className="w-full px-4 py-3 bg-gray-700 border border-gray-600 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600 text-lg font-semibold"
                 />
                 
                 <div className="flex justify-between items-center mt-3">
-                  <p className="text-sm text-gray-600">Percentage of original price: {resellPercentage}%</p>
+                  <p className="text-sm text-gray-400">Percentage of original price: {resellPercentage}%</p>
                   {resellPercentage < 100 ? (
-                    <span className="bg-purple-100 text-purple-600 px-3 py-1 rounded text-xs font-bold">
+                    <span className="bg-purple-900 text-purple-300 px-3 py-1 rounded text-xs font-bold">
                       Original
                     </span>
                   ) : (
-                    <span className="bg-orange-100 text-orange-600 px-3 py-1 rounded text-xs font-bold">
+                    <span className="bg-orange-900 text-orange-300 px-3 py-1 rounded text-xs font-bold">
                       Markup
                     </span>
                   )}
@@ -658,7 +658,7 @@ export default function TicketModals() {
 
                 {/* Price Slider Visual */}
                 <div className="mt-3">
-                  <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
+                  <div className="h-2 bg-gray-700 rounded-full overflow-hidden">
                     <div 
                       className="h-full bg-purple-600"
                       style={{ width: `${Math.min(resellPercentage, 100)}%` }}
@@ -668,40 +668,40 @@ export default function TicketModals() {
               </div>
 
               {/* Fee Breakdown */}
-              <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-6">
+              <div className="bg-yellow-950 border border-yellow-800 rounded-lg p-4 mb-6">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-yellow-600 text-xl">💰</span>
-                  <h4 className="font-bold text-gray-900">Fee Breakdown</h4>
-                  <span className="ml-auto text-sm text-gray-600">-0.003 LSK</span>
+                  <span className="text-yellow-400 text-xl">💰</span>
+                  <h4 className="font-bold text-gray-100">Fee Breakdown</h4>
+                  <span className="ml-auto text-sm text-gray-400">-0.003 LSK</span>
                 </div>
                 
                 <div className="space-y-2 text-sm">
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Listing Price:</span>
-                    <span className="font-semibold text-gray-900">{resellPrice.toFixed(2)} IDRX</span>
+                    <span className="text-gray-400">Listing Price:</span>
+                    <span className="font-semibold text-gray-200">{resellPrice.toFixed(2)} IDRX</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Organizer Fee (2.5%):</span>
-                    <span className="font-semibold text-red-600">-{organizerFee.toFixed(2)} IDRX</span>
+                    <span className="text-gray-400">Organizer Fee (2.5%):</span>
+                    <span className="font-semibold text-red-400">-{organizerFee.toFixed(2)} IDRX</span>
                   </div>
                   <div className="flex justify-between">
-                    <span className="text-gray-600">Platform Fee (3%):</span>
-                    <span className="font-semibold text-red-600">-{platformFee.toFixed(2)} IDRX</span>
+                    <span className="text-gray-400">Platform Fee (3%):</span>
+                    <span className="font-semibold text-red-400">-{platformFee.toFixed(2)} IDRX</span>
                   </div>
-                  <div className="border-t border-yellow-300 pt-2 flex justify-between">
-                    <span className="font-bold text-gray-900">You&apos;ll Receive:</span>
-                    <span className="font-bold text-green-600">{youReceive.toFixed(2)} IDRX</span>
+                  <div className="border-t border-yellow-800 pt-2 flex justify-between">
+                    <span className="font-bold text-gray-100">You&apos;ll Receive:</span>
+                    <span className="font-bold text-green-400">{youReceive.toFixed(2)} IDRX</span>
                   </div>
                 </div>
               </div>
 
               {/* Organizer Resale Rules */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="bg-blue-950 border border-blue-800 rounded-lg p-4 mb-6">
                 <div className="flex gap-3">
-                  <span className="text-blue-600 text-xl">📋</span>
+                  <span className="text-blue-400 text-xl">📋</span>
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-2">Organizer Resale Rules</h4>
-                    <ul className="text-sm text-blue-800 space-y-1">
+                    <h4 className="font-semibold text-blue-300 mb-2">Organizer Resale Rules</h4>
+                    <ul className="text-sm text-blue-400 space-y-1">
                       <li>• Max markup: 20% above original price</li>
                       <li>• Organizer fee: 2.5%</li>
                     </ul>
@@ -712,51 +712,51 @@ export default function TicketModals() {
               {/* Marketplace Preview */}
               <div className="mb-6">
                 <div className="flex justify-between items-center mb-3">
-                  <h4 className="font-bold text-gray-900 flex items-center gap-2">
+                  <h4 className="font-bold text-gray-100 flex items-center gap-2">
                     <span>🔍</span>
                     Marketplace Preview
                   </h4>
-                  <button className="text-purple-600 text-sm hover:underline flex items-center gap-1">
+                  <button className="text-purple-400 text-sm hover:underline flex items-center gap-1">
                     <span>👁️</span>
                     Hide
                   </button>
                 </div>
 
-                <div className="border border-gray-200 rounded-lg p-4">
+                <div className="border border-gray-700 rounded-lg p-4 bg-gray-700">
                   <div className="space-y-2 text-sm mb-4">
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Listing Price:</span>
-                      <span className="font-semibold text-gray-900">{resellPrice.toFixed(2)} IDRX</span>
+                      <span className="text-gray-400">Listing Price:</span>
+                      <span className="font-semibold text-gray-200">{resellPrice.toFixed(2)} IDRX</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Organizer Fee (2.5%):</span>
-                      <span className="font-semibold text-red-600">-{organizerFee.toFixed(2)} IDRX</span>
+                      <span className="text-gray-400">Organizer Fee (2.5%):</span>
+                      <span className="font-semibold text-red-400">-{organizerFee.toFixed(2)} IDRX</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-gray-600">Platform Fee (3%):</span>
-                      <span className="font-semibold text-red-600">-{platformFee.toFixed(2)} IDRX</span>
+                      <span className="text-gray-400">Platform Fee (3%):</span>
+                      <span className="font-semibold text-red-400">-{platformFee.toFixed(2)} IDRX</span>
                     </div>
-                    <div className="border-t border-gray-200 pt-2 flex justify-between">
-                      <span className="font-bold text-gray-900">You&apos;ll Receive:</span>
-                      <span className="font-bold text-green-600">{youReceive.toFixed(2)} IDRX</span>
+                    <div className="border-t border-gray-600 pt-2 flex justify-between">
+                      <span className="font-bold text-gray-200">You&apos;ll Receive:</span>
+                      <span className="font-bold text-green-400">{youReceive.toFixed(2)} IDRX</span>
                     </div>
                   </div>
 
-                  <div className="border-t border-gray-200 pt-4">
+                  <div className="border-t border-gray-600 pt-4">
                     <div className="flex gap-3">
-                      <div className="w-16 h-16 bg-gray-300 rounded flex-shrink-0"></div>
+                      <div className="w-16 h-16 bg-gray-600 rounded flex-shrink-0"></div>
                       <div className="flex-1">
-                        <h5 className="font-bold text-gray-900 mb-1">{selectedTicket.eventName}</h5>
+                        <h5 className="font-bold text-gray-100 mb-1">{selectedTicket.eventName}</h5>
                         <div className="flex gap-2 mb-1">
-                          <span className="bg-purple-100 text-purple-600 px-2 py-0.5 rounded text-xs font-bold">
+                          <span className="bg-purple-900 text-purple-300 px-2 py-0.5 rounded text-xs font-bold">
                             VIP PASS
                           </span>
-                          <span className="bg-orange-100 text-orange-600 px-2 py-0.5 rounded text-xs font-bold">
+                          <span className="bg-orange-900 text-orange-300 px-2 py-0.5 rounded text-xs font-bold">
                             RESALE
                           </span>
                         </div>
                         <p className="text-xs text-gray-500 mb-2">Original: 500 IDRX</p>
-                        <p className="text-lg font-bold text-green-600">{resellPrice.toFixed(2)} IDRX</p>
+                        <p className="text-lg font-bold text-green-400">{resellPrice.toFixed(2)} IDRX</p>
                       </div>
                     </div>
                   </div>
@@ -764,12 +764,12 @@ export default function TicketModals() {
               </div>
 
               {/* Organizer Rules (Bottom) */}
-              <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-6">
+              <div className="bg-blue-950 border border-blue-800 rounded-lg p-4 mb-6">
                 <div className="flex gap-3">
-                  <span className="text-blue-600 text-xl">📋</span>
+                  <span className="text-blue-400 text-xl">📋</span>
                   <div>
-                    <h4 className="font-semibold text-blue-900 mb-2">Organizer Resale Rules</h4>
-                    <ul className="text-sm text-blue-800 space-y-1">
+                    <h4 className="font-semibold text-blue-300 mb-2">Organizer Resale Rules</h4>
+                    <ul className="text-sm text-blue-400 space-y-1">
                       <li>• Max markup: 20% above original price</li>
                       <li>• Organizer fee: 2.5%</li>
                     </ul>
@@ -781,7 +781,7 @@ export default function TicketModals() {
               <div className="flex gap-3">
                 <button
                   onClick={() => setShowResellModal(false)}
-                  className="flex-1 px-4 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 font-medium"
+                  className="flex-1 px-4 py-3 border border-gray-600 text-gray-300 rounded-lg hover:bg-gray-700 font-medium"
                 >
                   Cancel
                 </button>

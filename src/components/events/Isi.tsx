@@ -148,30 +148,30 @@ export default function EventsPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-950">
       
 
       {/* Main Content */}
       <div className="max-w-7xl mx-auto px-6 py-8">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Discover Events</h1>
-          <p className="text-gray-600">Find and book blockchain-verified tickets for the best events</p>
+          <h1 className="text-4xl font-bold text-gray-100 mb-2">Discover Events</h1>
+          <p className="text-gray-400">Find and book blockchain-verified tickets for the best events</p>
         </div>
 
         {/* Demo Mode Alert */}
-        <div className="mb-6 bg-blue-100 border border-blue-300 rounded-lg p-4 flex items-center gap-3">
-          <span className="text-blue-600 text-xl">ℹ️</span>
+        <div className="mb-6 bg-blue-950 border border-blue-800 rounded-lg p-4 flex items-center gap-3">
+          <span className="text-blue-400 text-xl">ℹ️</span>
           <div>
-            <span className="font-semibold text-blue-900">Demo Mode:</span>
-            <span className="text-blue-800 ml-2">No events found on blockchain - showing demo data</span>
+            <span className="font-semibold text-blue-300">Demo Mode:</span>
+            <span className="text-blue-400 ml-2">No events found on blockchain - showing demo data</span>
           </div>
         </div>
 
         {/* Search Bar */}
         <div className="mb-6">
           <div className="relative">
-            <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400">🔍</span>
+            <span className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500">🔍</span>
             <input
               type="text"
               placeholder="Search events, artists, or venues"
@@ -180,20 +180,20 @@ export default function EventsPage() {
                 setSearchQuery(e.target.value);
                 applyFilters();
               }}
-              className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+              className="w-full pl-12 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-600"
             />
           </div>
         </div>
 
         {/* Filters */}
-        <div className="mb-6 flex gap-4 items-center">
+        <div className="mb-6 flex gap-4 items-center overflow-x-auto">
           <select
             value={selectedCategory}
             onChange={(e) => {
               setSelectedCategory(e.target.value);
               applyFilters();
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600"
           >
             <option value="All">Category</option>
             {categories.slice(1).map(cat => (
@@ -207,7 +207,7 @@ export default function EventsPage() {
               setSelectedLocation(e.target.value);
               applyFilters();
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600"
           >
             {locations.map(loc => (
               <option key={loc} value={loc}>{loc}</option>
@@ -221,7 +221,7 @@ export default function EventsPage() {
               setSelectedDate(e.target.value);
               applyFilters();
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600"
           />
 
           <select
@@ -230,7 +230,7 @@ export default function EventsPage() {
               setSelectedStatus(e.target.value);
               applyFilters();
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600"
           >
             {statuses.map(status => (
               <option key={status} value={status}>
@@ -241,7 +241,7 @@ export default function EventsPage() {
 
           <button
             onClick={handleReset}
-            className="px-4 py-2 text-purple-600 hover:text-purple-700 font-medium"
+            className="px-4 py-2 text-purple-400 hover:text-purple-300 font-medium"
           >
             Reset
           </button>
@@ -250,14 +250,14 @@ export default function EventsPage() {
         {/* Results Count and Sort */}
         <div className="w-full">
         <div className="mb-6 flex justify-between items-center">
-          <p className="text-gray-700 font-medium">Showing {filteredEvents.length} events</p>
+          <p className="text-gray-300 font-medium">Showing {filteredEvents.length} events</p>
           <select
             value={sortBy}
             onChange={(e) => {
               setSortBy(e.target.value);
               applyFilters();
             }}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-600"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:outline-none focus:ring-2 focus:ring-purple-600"
           >
             {sortOptions.map(option => (
               <option key={option} value={option}>{option}</option>
@@ -268,8 +268,8 @@ export default function EventsPage() {
         {/* Events Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredEvents.map((event) => (
-            <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-xl transition-shadow cursor-pointer">
-              <div className="relative h-48 bg-gray-200">
+            <div key={event.id} className="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl hover:shadow-purple-900/20 transition-shadow cursor-pointer border border-gray-700">
+              <div className="relative h-48 bg-gray-900">
                 <img
                   src={event.image}
                   alt={event.title}
@@ -277,14 +277,14 @@ export default function EventsPage() {
                 />
               </div>
               <div className="p-4">
-                <p className="text-sm text-gray-500 mb-1">{event.date}</p>
-                <h3 className="text-lg font-bold text-gray-900 mb-2">{event.title}</h3>
-                <p className="text-sm text-gray-600 mb-4">{event.location}</p>
+                <p className="text-sm text-gray-400 mb-1">{event.date}</p>
+                <h3 className="text-lg font-bold text-gray-100 mb-2">{event.title}</h3>
+                <p className="text-sm text-gray-400 mb-4">{event.location}</p>
                 <div className="flex justify-between items-center">
-                  <span className="px-3 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded">
+                  <span className="px-3 py-1 bg-purple-900 text-purple-300 text-xs font-semibold rounded">
                     {event.category}
                   </span>
-                  <span className="text-lg font-bold text-purple-600">
+                  <span className="text-lg font-bold text-purple-400">
                     IDRX {event.price}
                   </span>
                 </div>
@@ -296,7 +296,7 @@ export default function EventsPage() {
         {/* No Results */}
         {filteredEvents.length === 0 && (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">No events found matching your criteria</p>
+            <p className="text-gray-400 text-lg">No events found matching your criteria</p>
             <button
               onClick={handleReset}
               className="mt-4 px-6 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700"

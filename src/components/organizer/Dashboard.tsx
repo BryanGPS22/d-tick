@@ -66,15 +66,15 @@ export default function OrganizerDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6">
+    <div className="min-h-screen bg-gray-950 p-6">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex justify-between items-start mb-8">
           <div>
-            <h1 className="text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-4xl font-bold text-gray-100 mb-2">
               Organizer Dashboard
             </h1>
-            <p className="text-gray-600">
+            <p className="text-gray-400">
               Manage your events and track performance
             </p>
           </div>
@@ -92,11 +92,11 @@ export default function OrganizerDashboard() {
 
         {/* Sales Overview Header */}
         <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold text-gray-900">Sales Overview</h2>
+          <h2 className="text-2xl font-bold text-gray-100">Sales Overview</h2>
           <select
             value={selectedEvent}
             onChange={(e) => setSelectedEvent(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none bg-white"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none"
           >
             <option value="all">All Events</option>
             <option value="summer-festival">Summer Music Festival</option>
@@ -107,13 +107,13 @@ export default function OrganizerDashboard() {
 
         {/* Statistics Header */}
         <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-bold text-gray-900">
+          <h3 className="text-xl font-bold text-gray-100">
             Sales Statistics - All Events
           </h3>
           <select
             value={timeRange}
             onChange={(e) => setTimeRange(e.target.value)}
-            className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none bg-white text-sm"
+            className="px-4 py-2 bg-gray-800 border border-gray-700 rounded-lg text-gray-200 focus:ring-2 focus:ring-purple-600 focus:border-transparent outline-none text-sm"
           >
             <option value="7days">Last 7 days</option>
             <option value="30days">Last 30 days</option>
@@ -125,66 +125,66 @@ export default function OrganizerDashboard() {
         {/* Statistics Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
           {/* Total Revenue */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700">
             <div className="flex justify-between items-start mb-3">
-              <span className="text-gray-600 text-sm font-medium">Total Revenue</span>
-              <div className="w-10 h-10 bg-yellow-100 rounded-lg flex items-center justify-center">
+              <span className="text-gray-400 text-sm font-medium">Total Revenue</span>
+              <div className="w-10 h-10 bg-yellow-900 rounded-lg flex items-center justify-center">
                 <span className="text-2xl">💰</span>
               </div>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">
+            <div className="text-3xl font-bold text-gray-100 mb-2">
               IDRX {stats.totalRevenue.toLocaleString()}
             </div>
-            <div className="flex items-center gap-1 text-sm text-green-600">
+            <div className="flex items-center gap-1 text-sm text-green-400">
               <TrendingUp className="w-4 h-4" />
               <span>{stats.revenueChange}% from previous period</span>
             </div>
           </div>
 
           {/* Tickets Sold */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700">
             <div className="flex justify-between items-start mb-3">
-              <span className="text-gray-600 text-sm font-medium">Tickets Sold</span>
-              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <Ticket className="w-5 h-5 text-orange-600" />
+              <span className="text-gray-400 text-sm font-medium">Tickets Sold</span>
+              <div className="w-10 h-10 bg-orange-900 rounded-lg flex items-center justify-center">
+                <Ticket className="w-5 h-5 text-orange-400" />
               </div>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">
+            <div className="text-3xl font-bold text-gray-100 mb-2">
               {stats.ticketsSold}
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-400">
               {stats.ticketsPercentage}% of total
             </div>
           </div>
 
           {/* Transactions */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700">
             <div className="flex justify-between items-start mb-3">
-              <span className="text-gray-600 text-sm font-medium">Transactions</span>
-              <div className="w-10 h-10 bg-orange-100 rounded-lg flex items-center justify-center">
-                <CreditCard className="w-5 h-5 text-orange-600" />
+              <span className="text-gray-400 text-sm font-medium">Transactions</span>
+              <div className="w-10 h-10 bg-orange-900 rounded-lg flex items-center justify-center">
+                <CreditCard className="w-5 h-5 text-orange-400" />
               </div>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">
+            <div className="text-3xl font-bold text-gray-100 mb-2">
               {stats.transactions}
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-400">
               Total purchases
             </div>
           </div>
 
           {/* Avg Ticket Price */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700">
             <div className="flex justify-between items-start mb-3">
-              <span className="text-gray-600 text-sm font-medium">Avg. Ticket Price</span>
-              <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
-                <BarChart3 className="w-5 h-5 text-blue-600" />
+              <span className="text-gray-400 text-sm font-medium">Avg. Ticket Price</span>
+              <div className="w-10 h-10 bg-blue-900 rounded-lg flex items-center justify-center">
+                <BarChart3 className="w-5 h-5 text-blue-400" />
               </div>
             </div>
-            <div className="text-3xl font-bold text-gray-900 mb-2">
+            <div className="text-3xl font-bold text-gray-100 mb-2">
               IDRX {stats.avgTicketPrice}
             </div>
-            <div className="text-sm text-gray-600">
+            <div className="text-sm text-gray-400">
               Per ticket
             </div>
           </div>
@@ -193,33 +193,34 @@ export default function OrganizerDashboard() {
         {/* Charts Section */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Sales Overview Chart */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Sales Overview</h3>
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-gray-100 mb-6">Sales Overview</h3>
             <ResponsiveContainer width="100%" height={300}>
               <LineChart data={salesData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e5e7eb" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis 
                   dataKey="date" 
-                  stroke="#6b7280"
+                  stroke="#9ca3af"
                   style={{ fontSize: '12px' }}
                 />
                 <YAxis 
-                  stroke="#6b7280"
+                  stroke="#9ca3af"
                   style={{ fontSize: '12px' }}
                 />
                 <Tooltip 
                   contentStyle={{
-                    backgroundColor: '#fff',
-                    border: '1px solid #e5e7eb',
-                    borderRadius: '8px'
+                    backgroundColor: '#1f2937',
+                    border: '1px solid #374151',
+                    borderRadius: '8px',
+                    color: '#f3f4f6'
                   }}
                 />
                 <Line 
                   type="monotone" 
                   dataKey="sales" 
-                  stroke="#8b5cf6" 
+                  stroke="#a855f7" 
                   strokeWidth={2}
-                  dot={{ fill: '#8b5cf6', r: 4 }}
+                  dot={{ fill: '#a855f7', r: 4 }}
                   name="Ticket Sales"
                 />
               </LineChart>
@@ -227,21 +228,21 @@ export default function OrganizerDashboard() {
           </div>
 
           {/* Revenue by Ticket Tier */}
-          <div className="bg-white rounded-lg shadow-sm p-6 border border-gray-200">
-            <h3 className="text-lg font-bold text-gray-900 mb-6">Revenue by Ticket Tier</h3>
+          <div className="bg-gray-800 rounded-lg shadow-lg p-6 border border-gray-700">
+            <h3 className="text-lg font-bold text-gray-100 mb-6">Revenue by Ticket Tier</h3>
             <div className="space-y-6">
               {events.map((event) => (
                 <div key={event.id}>
-                  <h4 className="text-purple-600 font-semibold mb-3 border-l-4 border-purple-600 pl-3">
+                  <h4 className="text-purple-400 font-semibold mb-3 border-l-4 border-purple-400 pl-3">
                     {event.name}
                   </h4>
                   <div className="space-y-2 ml-7">
                     {event.tiers.map((tier, index) => (
                       <div key={index} className="flex justify-between items-center">
-                        <span className="text-sm text-purple-600 uppercase">
+                        <span className="text-sm text-purple-400 uppercase">
                           {tier.name}
                         </span>
-                        <span className="text-sm font-semibold text-gray-900">
+                        <span className="text-sm font-semibold text-gray-200">
                           IDRX {tier.revenue.toLocaleString()}
                         </span>
                       </div>

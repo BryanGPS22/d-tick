@@ -32,18 +32,18 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-gray-50 border-t border-gray-200">
+    <footer className="bg-gray-900 border-t border-gray-800">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Product Column */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Product</h3>
+            <h3 className="font-semibold text-gray-100 mb-4">Product</h3>
             <ul className="space-y-3">
               {productLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -54,13 +54,13 @@ const Footer: React.FC = () => {
 
           {/* Company Column */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Company</h3>
+            <h3 className="font-semibold text-gray-100 mb-4">Company</h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -71,13 +71,13 @@ const Footer: React.FC = () => {
 
           {/* Support Column */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Support</h3>
+            <h3 className="font-semibold text-gray-100 mb-4">Support</h3>
             <ul className="space-y-3">
               {supportLinks.map((link) => (
                 <li key={link.name}>
                   <Link 
                     href={link.href}
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
                   >
                     {link.name}
                   </Link>
@@ -88,7 +88,7 @@ const Footer: React.FC = () => {
 
           {/* Connect Column */}
           <div>
-            <h3 className="font-semibold text-gray-900 mb-4">Connect</h3>
+            <h3 className="font-semibold text-gray-100 mb-4">Connect</h3>
             <div className="flex space-x-4">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
@@ -98,7 +98,7 @@ const Footer: React.FC = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-600 hover:text-gray-900 transition-colors"
+                    className="text-gray-400 hover:text-purple-400 transition-colors"
                     aria-label={social.name}
                   >
                     <Icon size={20} />
@@ -110,8 +110,8 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Copyright */}
-        <div className="pt-8 border-t border-gray-200">
-          <p className="text-center text-gray-600 text-sm">
+        <div className="pt-8 border-t border-gray-800">
+          <p className="text-center text-gray-400 text-sm">
             © 2025 D-Tick. All rights reserved.
           </p>
         </div>
